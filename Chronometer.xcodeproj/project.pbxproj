@@ -7,15 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC7C367E240586AD00030ADD /* TimeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7C367D240586AD00030ADD /* TimeSlider.swift */; };
+		BCCD1C7E23ECE4EB000A7645 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCD1C7D23ECE4EB000A7645 /* Colors.swift */; };
 		BCD5C53D23E6629500405DEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD5C53C23E6629500405DEA /* AppDelegate.swift */; };
 		BCD5C53F23E6629500405DEA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD5C53E23E6629500405DEA /* SceneDelegate.swift */; };
 		BCD5C54123E6629500405DEA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD5C54023E6629500405DEA /* ViewController.swift */; };
 		BCD5C54423E6629500405DEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCD5C54223E6629500405DEA /* Main.storyboard */; };
 		BCD5C54623E6629900405DEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCD5C54523E6629900405DEA /* Assets.xcassets */; };
 		BCD5C54923E6629900405DEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCD5C54723E6629900405DEA /* LaunchScreen.storyboard */; };
+		BCD5C55323E6759B00405DEA /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD5C55223E6759B00405DEA /* Constraints.swift */; };
+		BCD986DA23EB9B910046B4CA /* Oswald-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BCD986CB23EB9B910046B4CA /* Oswald-BoldItalic.ttf */; };
+		BCD986DB23EB9B910046B4CA /* Oswald-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BCD986CC23EB9B910046B4CA /* Oswald-ExtraLight.ttf */; };
+		BCD986DC23EB9B910046B4CA /* Oswald-Demi-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BCD986CD23EB9B910046B4CA /* Oswald-Demi-BoldItalic.ttf */; };
+		BCD986DD23EB9B910046B4CA /* Oswald-Extra-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BCD986CE23EB9B910046B4CA /* Oswald-Extra-LightItalic.ttf */; };
+		BCD986DE23EB9B910046B4CA /* Oswald-Stencil.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BCD986CF23EB9B910046B4CA /* Oswald-Stencil.ttf */; };
+		BCD986DF23EB9B910046B4CA /* Oswald-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BCD986D023EB9B910046B4CA /* Oswald-Medium.ttf */; };
+		BCD986E023EB9B910046B4CA /* Oswald-DemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BCD986D123EB9B910046B4CA /* Oswald-DemiBold.ttf */; };
+		BCD986E123EB9B910046B4CA /* Oswald-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BCD986D223EB9B910046B4CA /* Oswald-Light.ttf */; };
+		BCD986E223EB9B910046B4CA /* Oswald-HeavyItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BCD986D323EB9B910046B4CA /* Oswald-HeavyItalic.ttf */; };
+		BCD986E323EB9B910046B4CA /* Oswald-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BCD986D423EB9B910046B4CA /* Oswald-LightItalic.ttf */; };
+		BCD986E423EB9B910046B4CA /* Oswald-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BCD986D523EB9B910046B4CA /* Oswald-MediumItalic.ttf */; };
+		BCD986E523EB9B910046B4CA /* Oswald-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BCD986D623EB9B910046B4CA /* Oswald-Heavy.ttf */; };
+		BCD986E623EB9B910046B4CA /* Oswald-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BCD986D723EB9B910046B4CA /* Oswald-Bold.ttf */; };
+		BCD986E723EB9B910046B4CA /* Oswald-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BCD986D823EB9B910046B4CA /* Oswald-Regular.ttf */; };
+		BCD986E823EB9B910046B4CA /* Oswald-RegularItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BCD986D923EB9B910046B4CA /* Oswald-RegularItalic.ttf */; };
+		BCD986EA23EB9D820046B4CA /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD986E923EB9D820046B4CA /* Fonts.swift */; };
+		BCD986EC23EBAB960046B4CA /* ChronometerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD986EB23EBAB960046B4CA /* ChronometerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BC7C367D240586AD00030ADD /* TimeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSlider.swift; sourceTree = "<group>"; };
+		BCCD1C7D23ECE4EB000A7645 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		BCD5C53923E6629500405DEA /* Chronometer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chronometer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCD5C53C23E6629500405DEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCD5C53E23E6629500405DEA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +46,24 @@
 		BCD5C54523E6629900405DEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BCD5C54823E6629900405DEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BCD5C54A23E6629900405DEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BCD5C55223E6759B00405DEA /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
+		BCD986CB23EB9B910046B4CA /* Oswald-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-BoldItalic.ttf"; sourceTree = "<group>"; };
+		BCD986CC23EB9B910046B4CA /* Oswald-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-ExtraLight.ttf"; sourceTree = "<group>"; };
+		BCD986CD23EB9B910046B4CA /* Oswald-Demi-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Demi-BoldItalic.ttf"; sourceTree = "<group>"; };
+		BCD986CE23EB9B910046B4CA /* Oswald-Extra-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Extra-LightItalic.ttf"; sourceTree = "<group>"; };
+		BCD986CF23EB9B910046B4CA /* Oswald-Stencil.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Stencil.ttf"; sourceTree = "<group>"; };
+		BCD986D023EB9B910046B4CA /* Oswald-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Medium.ttf"; sourceTree = "<group>"; };
+		BCD986D123EB9B910046B4CA /* Oswald-DemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-DemiBold.ttf"; sourceTree = "<group>"; };
+		BCD986D223EB9B910046B4CA /* Oswald-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Light.ttf"; sourceTree = "<group>"; };
+		BCD986D323EB9B910046B4CA /* Oswald-HeavyItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-HeavyItalic.ttf"; sourceTree = "<group>"; };
+		BCD986D423EB9B910046B4CA /* Oswald-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-LightItalic.ttf"; sourceTree = "<group>"; };
+		BCD986D523EB9B910046B4CA /* Oswald-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-MediumItalic.ttf"; sourceTree = "<group>"; };
+		BCD986D623EB9B910046B4CA /* Oswald-Heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Heavy.ttf"; sourceTree = "<group>"; };
+		BCD986D723EB9B910046B4CA /* Oswald-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Bold.ttf"; sourceTree = "<group>"; };
+		BCD986D823EB9B910046B4CA /* Oswald-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Regular.ttf"; sourceTree = "<group>"; };
+		BCD986D923EB9B910046B4CA /* Oswald-RegularItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-RegularItalic.ttf"; sourceTree = "<group>"; };
+		BCD986E923EB9D820046B4CA /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		BCD986EB23EBAB960046B4CA /* ChronometerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronometerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +96,8 @@
 		BCD5C53B23E6629500405DEA /* Chronometer */ = {
 			isa = PBXGroup;
 			children = (
+				BCD986CA23EB9B690046B4CA /* Font */,
+				BCD986C723EB92060046B4CA /* Utils */,
 				BCD5C53C23E6629500405DEA /* AppDelegate.swift */,
 				BCD5C53E23E6629500405DEA /* SceneDelegate.swift */,
 				BCD5C54023E6629500405DEA /* ViewController.swift */,
@@ -63,8 +105,42 @@
 				BCD5C54523E6629900405DEA /* Assets.xcassets */,
 				BCD5C54723E6629900405DEA /* LaunchScreen.storyboard */,
 				BCD5C54A23E6629900405DEA /* Info.plist */,
+				BCD986EB23EBAB960046B4CA /* ChronometerView.swift */,
+				BC7C367D240586AD00030ADD /* TimeSlider.swift */,
 			);
 			path = Chronometer;
+			sourceTree = "<group>";
+		};
+		BCD986C723EB92060046B4CA /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				BCD5C55223E6759B00405DEA /* Constraints.swift */,
+				BCD986E923EB9D820046B4CA /* Fonts.swift */,
+				BCCD1C7D23ECE4EB000A7645 /* Colors.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		BCD986CA23EB9B690046B4CA /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				BCD986D723EB9B910046B4CA /* Oswald-Bold.ttf */,
+				BCD986CB23EB9B910046B4CA /* Oswald-BoldItalic.ttf */,
+				BCD986CD23EB9B910046B4CA /* Oswald-Demi-BoldItalic.ttf */,
+				BCD986D123EB9B910046B4CA /* Oswald-DemiBold.ttf */,
+				BCD986CE23EB9B910046B4CA /* Oswald-Extra-LightItalic.ttf */,
+				BCD986CC23EB9B910046B4CA /* Oswald-ExtraLight.ttf */,
+				BCD986D623EB9B910046B4CA /* Oswald-Heavy.ttf */,
+				BCD986D323EB9B910046B4CA /* Oswald-HeavyItalic.ttf */,
+				BCD986D223EB9B910046B4CA /* Oswald-Light.ttf */,
+				BCD986D423EB9B910046B4CA /* Oswald-LightItalic.ttf */,
+				BCD986D023EB9B910046B4CA /* Oswald-Medium.ttf */,
+				BCD986D523EB9B910046B4CA /* Oswald-MediumItalic.ttf */,
+				BCD986D823EB9B910046B4CA /* Oswald-Regular.ttf */,
+				BCD986D923EB9B910046B4CA /* Oswald-RegularItalic.ttf */,
+				BCD986CF23EB9B910046B4CA /* Oswald-Stencil.ttf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,9 +201,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCD986E223EB9B910046B4CA /* Oswald-HeavyItalic.ttf in Resources */,
+				BCD986E423EB9B910046B4CA /* Oswald-MediumItalic.ttf in Resources */,
+				BCD986DC23EB9B910046B4CA /* Oswald-Demi-BoldItalic.ttf in Resources */,
+				BCD986E623EB9B910046B4CA /* Oswald-Bold.ttf in Resources */,
 				BCD5C54923E6629900405DEA /* LaunchScreen.storyboard in Resources */,
+				BCD986E723EB9B910046B4CA /* Oswald-Regular.ttf in Resources */,
+				BCD986E323EB9B910046B4CA /* Oswald-LightItalic.ttf in Resources */,
+				BCD986E023EB9B910046B4CA /* Oswald-DemiBold.ttf in Resources */,
+				BCD986DB23EB9B910046B4CA /* Oswald-ExtraLight.ttf in Resources */,
 				BCD5C54623E6629900405DEA /* Assets.xcassets in Resources */,
 				BCD5C54423E6629500405DEA /* Main.storyboard in Resources */,
+				BCD986DA23EB9B910046B4CA /* Oswald-BoldItalic.ttf in Resources */,
+				BCD986DF23EB9B910046B4CA /* Oswald-Medium.ttf in Resources */,
+				BCD986E123EB9B910046B4CA /* Oswald-Light.ttf in Resources */,
+				BCD986E523EB9B910046B4CA /* Oswald-Heavy.ttf in Resources */,
+				BCD986E823EB9B910046B4CA /* Oswald-RegularItalic.ttf in Resources */,
+				BCD986DD23EB9B910046B4CA /* Oswald-Extra-LightItalic.ttf in Resources */,
+				BCD986DE23EB9B910046B4CA /* Oswald-Stencil.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,8 +230,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCD5C54123E6629500405DEA /* ViewController.swift in Sources */,
+				BCCD1C7E23ECE4EB000A7645 /* Colors.swift in Sources */,
 				BCD5C53D23E6629500405DEA /* AppDelegate.swift in Sources */,
+				BCD5C55323E6759B00405DEA /* Constraints.swift in Sources */,
+				BCD986EA23EB9D820046B4CA /* Fonts.swift in Sources */,
 				BCD5C53F23E6629500405DEA /* SceneDelegate.swift in Sources */,
+				BCD986EC23EBAB960046B4CA /* ChronometerView.swift in Sources */,
+				BC7C367E240586AD00030ADD /* TimeSlider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
