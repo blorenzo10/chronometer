@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BC7C367E240586AD00030ADD /* TimeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7C367D240586AD00030ADD /* TimeSlider.swift */; };
+		BC1ECDED24B6B51700418BCF /* GradientFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1ECDEC24B6B51700418BCF /* GradientFactory.swift */; };
+		BC1ECDF024B6B62400418BCF /* ButtonFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1ECDEF24B6B62400418BCF /* ButtonFactory.swift */; };
+		BC1ECDF224B6B8B100418BCF /* LabelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1ECDF124B6B8B100418BCF /* LabelFactory.swift */; };
+		BC1ECDF424B6B96A00418BCF /* ShapeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1ECDF324B6B96A00418BCF /* ShapeFactory.swift */; };
+		BC1ECDF624B6BD6400418BCF /* ColorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1ECDF524B6BD6400418BCF /* ColorFactory.swift */; };
 		BCCD1C7E23ECE4EB000A7645 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCD1C7D23ECE4EB000A7645 /* Colors.swift */; };
 		BCD5C53D23E6629500405DEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD5C53C23E6629500405DEA /* AppDelegate.swift */; };
 		BCD5C53F23E6629500405DEA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD5C53E23E6629500405DEA /* SceneDelegate.swift */; };
@@ -36,7 +40,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		BC7C367D240586AD00030ADD /* TimeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSlider.swift; sourceTree = "<group>"; };
+		BC1ECDEC24B6B51700418BCF /* GradientFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientFactory.swift; sourceTree = "<group>"; };
+		BC1ECDEF24B6B62400418BCF /* ButtonFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFactory.swift; sourceTree = "<group>"; };
+		BC1ECDF124B6B8B100418BCF /* LabelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelFactory.swift; sourceTree = "<group>"; };
+		BC1ECDF324B6B96A00418BCF /* ShapeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeFactory.swift; sourceTree = "<group>"; };
+		BC1ECDF524B6BD6400418BCF /* ColorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorFactory.swift; sourceTree = "<group>"; };
 		BCCD1C7D23ECE4EB000A7645 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		BCD5C53923E6629500405DEA /* Chronometer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chronometer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCD5C53C23E6629500405DEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +85,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BC1ECDEE24B6B60B00418BCF /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				BC1ECDEC24B6B51700418BCF /* GradientFactory.swift */,
+				BC1ECDEF24B6B62400418BCF /* ButtonFactory.swift */,
+				BC1ECDF124B6B8B100418BCF /* LabelFactory.swift */,
+				BC1ECDF324B6B96A00418BCF /* ShapeFactory.swift */,
+				BC1ECDF524B6BD6400418BCF /* ColorFactory.swift */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
 		BCD5C53023E6629500405DEA = {
 			isa = PBXGroup;
 			children = (
@@ -97,28 +117,28 @@
 			isa = PBXGroup;
 			children = (
 				BCD986CA23EB9B690046B4CA /* Font */,
-				BCD986C723EB92060046B4CA /* Utils */,
+				BC1ECDEE24B6B60B00418BCF /* Factory */,
+				BCD986C723EB92060046B4CA /* Utility */,
 				BCD5C53C23E6629500405DEA /* AppDelegate.swift */,
 				BCD5C53E23E6629500405DEA /* SceneDelegate.swift */,
 				BCD5C54023E6629500405DEA /* ViewController.swift */,
+				BCD986EB23EBAB960046B4CA /* ChronometerView.swift */,
 				BCD5C54223E6629500405DEA /* Main.storyboard */,
 				BCD5C54523E6629900405DEA /* Assets.xcassets */,
 				BCD5C54723E6629900405DEA /* LaunchScreen.storyboard */,
 				BCD5C54A23E6629900405DEA /* Info.plist */,
-				BCD986EB23EBAB960046B4CA /* ChronometerView.swift */,
-				BC7C367D240586AD00030ADD /* TimeSlider.swift */,
 			);
 			path = Chronometer;
 			sourceTree = "<group>";
 		};
-		BCD986C723EB92060046B4CA /* Utils */ = {
+		BCD986C723EB92060046B4CA /* Utility */ = {
 			isa = PBXGroup;
 			children = (
 				BCD5C55223E6759B00405DEA /* Constraints.swift */,
 				BCD986E923EB9D820046B4CA /* Fonts.swift */,
 				BCCD1C7D23ECE4EB000A7645 /* Colors.swift */,
 			);
-			path = Utils;
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		BCD986CA23EB9B690046B4CA /* Font */ = {
@@ -231,12 +251,16 @@
 			files = (
 				BCD5C54123E6629500405DEA /* ViewController.swift in Sources */,
 				BCCD1C7E23ECE4EB000A7645 /* Colors.swift in Sources */,
+				BC1ECDF624B6BD6400418BCF /* ColorFactory.swift in Sources */,
 				BCD5C53D23E6629500405DEA /* AppDelegate.swift in Sources */,
+				BC1ECDF224B6B8B100418BCF /* LabelFactory.swift in Sources */,
 				BCD5C55323E6759B00405DEA /* Constraints.swift in Sources */,
 				BCD986EA23EB9D820046B4CA /* Fonts.swift in Sources */,
+				BC1ECDF424B6B96A00418BCF /* ShapeFactory.swift in Sources */,
 				BCD5C53F23E6629500405DEA /* SceneDelegate.swift in Sources */,
+				BC1ECDF024B6B62400418BCF /* ButtonFactory.swift in Sources */,
 				BCD986EC23EBAB960046B4CA /* ChronometerView.swift in Sources */,
-				BC7C367E240586AD00030ADD /* TimeSlider.swift in Sources */,
+				BC1ECDED24B6B51700418BCF /* GradientFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

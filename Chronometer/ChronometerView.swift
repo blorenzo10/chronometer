@@ -12,47 +12,52 @@ class ChronometerView: UIView {
     
     // MARK: - Custom Views
     
-    private lazy var remainingTimeLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .white
-        label.font = .customFont(name: CustomFontNames.owsaldRegular, size: 70)
-        label.textAlignment = .center
-        label.text = "10"
-        return label
-    }()
+    private lazy var remainingTimeLabel = UILabel.countDownTimer()
+    private lazy var pulseLayer = CAShapeLayer.createLayer(width: 10, strokeColor: .clear, fillColor: .progressColor, lineCap: .round, opacity: 0.8)
+    private lazy var backgroundLayer = CAShapeLayer.createLayer(width: 10, strokeColor: .progressColor, fillColor: .black, lineCap: .round)
+    private lazy var progressLayer = CAShapeLayer.createLayer(width: 10, strokeColor: .progressColor, fillColor: .clear, lineCap: .round)
     
-    private lazy var pulseLayer: CAShapeLayer = {
-        let layer = CAShapeLayer()
-        layer.lineWidth = 10
-        layer.strokeColor = UIColor.clear.cgColor
-        layer.fillColor = UIColor.progressColor.cgColor
-        layer.opacity = 0.8
-        layer.lineCap = .round
-        layer.frame = bounds
-        return layer
-    }()
+//    private lazy var remainingTimeLabel: UILabel = {
+//        let label = UILabel()
+//        label.textColor = .white
+//        label.font = .countDownTimerFont
+//        label.textAlignment = .center
+//        label.text = "10"
+//        return label
+//    }()
     
-    private lazy var backgroundLayer: CAShapeLayer = {
-        let layer = CAShapeLayer()
-        layer.lineWidth = 10
-        layer.strokeColor = UIColor.backgroundProgressColor.cgColor
-        layer.fillColor = UIColor.black.cgColor
-        layer.lineCap = .round
-        layer.strokeEnd = 1
-        layer.frame = bounds
-        return layer
-    }()
-    
-    private lazy var progressLayer: CAShapeLayer = {
-        let layer = CAShapeLayer()
-        layer.lineWidth = 10
-        layer.strokeColor = UIColor.progressColor.cgColor
-        layer.fillColor = UIColor.clear.cgColor
-        layer.lineCap = .round
-        layer.strokeEnd = 0
-        layer.frame = bounds
-        return layer
-    }()
+//    private lazy var pulseLayer: CAShapeLayer = {
+//        let layer = CAShapeLayer()
+//        layer.lineWidth = 10
+//        layer.strokeColor = UIColor.clear.cgColor
+//        layer.fillColor = UIColor.progressColor.cgColor
+//        layer.opacity = 0.8
+//        layer.lineCap = .round
+//        layer.frame = bounds
+//        return layer
+//    }()
+//
+//    private lazy var backgroundLayer: CAShapeLayer = {
+//        let layer = CAShapeLayer()
+//        layer.lineWidth = 10
+//        layer.strokeColor = UIColor.backgroundProgressColor.cgColor
+//        layer.fillColor = UIColor.black.cgColor
+//        layer.lineCap = .round
+//        layer.strokeEnd = 1
+//        layer.frame = bounds
+//        return layer
+//    }()
+//
+//    private lazy var progressLayer: CAShapeLayer = {
+//        let layer = CAShapeLayer()
+//        layer.lineWidth = 10
+//        layer.strokeColor = UIColor.progressColor.cgColor
+//        layer.fillColor = UIColor.clear.cgColor
+//        layer.lineCap = .round
+//        layer.strokeEnd = 0
+//        layer.frame = bounds
+//        return layer
+//    }()
     
     // MARK: - Properties
     
@@ -63,22 +68,40 @@ class ChronometerView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        commonInit()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        commonInit()
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
         loadLayers()
     }
+}
+
+// MARK: - Setups
+
+extension ChronometerView {
     
+    private func commonInit() {
+        remainingTimeLabel.text = "10"
+    }
+
     private func loadLayers() {
         
         let arcCenterPoint = CGPoint(x: frame.width/2, y: frame.height/2)
         let circularPath = UIBezierPath(arcCenter: arcCenterPoint, radius: bounds.width / 2, startAngle: -CGFloat.pi / 2, endAngle: 2 * CGFloat.pi - CGFloat.pi/2, clockwise: true).cgPath
+        
+        pulseLayer.frame = bounds
+        
+        backgroundLayer.strokeEnd = 1
+        backgroundLayer.frame = bounds
+        
+        progressLayer.strokeEnd = 0
+        progressLayer.frame = bounds
         
         pulseLayer.path = circularPath
         layer.addSublayer(pulseLayer)
@@ -92,7 +115,17 @@ class ChronometerView: UIView {
         setupRemainingTimeLabel()
     }
     
-    func startProgress(withDuration duration: Double) {
+    private func setupRemainingTimeLabel() {
+        addSubview(remainingTimeLabel)
+        remainingTimeLabel.centerView(in: self)
+        remainingTimeLabel.setSize(width: 120, height: 100)
+    }
+}
+
+// MARK: - Public functions
+
+extension ChronometerView {
+    public func startProgress(withDuration duration: Double) {
         self.duration = duration
         remainingTime = duration
         timer.invalidate()
@@ -113,17 +146,6 @@ extension ChronometerView: CAAnimationDelegate {
             animationFinish?()
         }
         timer.invalidate()
-    }
-}
-
-// MARK: - Setups
-
-extension ChronometerView {
-    
-    func setupRemainingTimeLabel() {
-        addSubview(remainingTimeLabel)
-        remainingTimeLabel.centerView(in: self)
-        remainingTimeLabel.setSize(width: 120, height: 100)
     }
 }
 
@@ -159,7 +181,7 @@ extension ChronometerView {
         progressAnimation.fromValue = 0
         progressAnimation.toValue = 1
         progressAnimation.duration = CFTimeInterval(duration)
-        progressAnimation.fillMode = CAMediaTimingFillMode.forwards
+        progressAnimation.fillMode = .forwards
         progressAnimation.isRemovedOnCompletion = false
         progressAnimation.delegate = self
         progressLayer.add(progressAnimation, forKey: "progressAnimation")

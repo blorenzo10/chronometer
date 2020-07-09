@@ -12,89 +12,21 @@ class ViewController: UIViewController {
     
     // MARK: - Custom Layers & Views
     
-    private lazy var gradientLayer: CAGradientLayer = {
-        let gradient = CAGradientLayer()
-        
-        gradient.frame = view.bounds
-        gradient.colors = gradientColors[currentGradient]
-        gradient.startPoint = CGPoint(x:0, y:0)
-        gradient.endPoint = CGPoint(x:1, y:1)
-        gradient.drawsAsynchronously = true
-        
-        return gradient
-    }()
-    
-    private lazy var startCountDownButton: UIButton = {
-        let button = UIButton()
-        button.clipsToBounds = true
-        button.layer.cornerRadius = 20
-        button.backgroundColor = .buttonColor
-        button.tintColor = .white
-        button.setTitle("Start", for: .normal)
-        button.titleLabel?.font = .boldSystemFont(ofSize: 21)
-        button.addTarget(self, action: #selector(startButtonDidTap(_:)), for: .touchUpInside)
-        button.isHidden = false
-        return button
-    }()
-    
-    private lazy var countDownLabel: UILabel = {
-        let label = UILabel()
-        label.text = countDownTexts[0]
-        label.font = .customFont(name: CustomFontNames.oswaldBold, size: 22)
-        label.textColor = .black
-        label.textAlignment = .center
-        return label
-    }()
-    
-    private lazy var setupTimeLayer: CAShapeLayer = {
-        let layer = CAShapeLayer()
-        layer.lineWidth = 10
-        layer.strokeColor = UIColor.clear.cgColor
-        layer.fillColor = UIColor.progressColor.cgColor
-        layer.opacity = 0.8
-        layer.lineCap = .round
-        return layer
-    }()
-    
-    private lazy var countDownTimerView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .clear
-        return view
-    }()
-    
-    
+    private lazy var gradientLayer = CAGradientLayer.backgroundGradient(withColor: gradientColors[currentGradient], bounds: view.bounds)
+    private lazy var startCountDownButton = UIButton.startButton()
+    private lazy var countDownLabel = UILabel.countDownSteps()
+    private lazy var setupTimeLayer = CAShapeLayer.createLayer(width: 10, strokeColor: .clear, fillColor: .progressColor, lineCap: .round, opacity: 0.8)
     private lazy var countDownView = ChronometerView()
-    private var gradientAnimation: CABasicAnimation!
-    private var scaleAnimation: CABasicAnimation = {
-        let timingFunction = CAMediaTimingFunction(controlPoints: 0.11, 0.9, 0.92, 0.13)
-        
-        let animation = CABasicAnimation(keyPath: "transform.scale")
-        animation.toValue = 6
-        animation.duration = 1
-        animation.timingFunction = timingFunction
-        animation.isRemovedOnCompletion = true
-        animation.setValue("scaleLabel", forKey: "id")
-        return animation
-    }()
     
     // MARK: - Properties
     
-    private var gradientColors: [[CGColor]] = {
-        var colors: [[CGColor]] = []
-        
-        let colorOne = #colorLiteral(red: 0, green: 0.6155423522, blue: 0.9723593593, alpha: 1).cgColor
-        let colorTwo = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1).cgColor
-        let colorThree = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1).cgColor
-        
-        colors.append([colorOne, colorTwo])
-        colors.append([colorTwo, colorThree])
-        colors.append([colorThree, colorOne])
-        colors.append([colorOne, colorThree])
-        
-        return colors
-    }()
-    
+    private let animationId = "ID"
+    private let gradientAnimationId = "GradientAnimation"
+    private let scaleAnimationId = "ScaleAnimation"
+    private let countDownTexts = ["Ready?", "3", "2", "1", "Go!"]
+    private var gradientColors = CGColor.createGradientColors()
     private var currentGradient = 0
+    
     private var currentCountDownStep = -1 {
         didSet {
             if currentCountDownStep > -1 {
@@ -109,7 +41,7 @@ class ViewController: UIViewController {
             }
         }
     }
-    private let countDownTexts = ["Ready?", "3", "2", "1", "Go!"]
+    
     
     // MARK: - Life Cycle
     
@@ -134,15 +66,14 @@ class ViewController: UIViewController {
 
 extension ViewController: CAAnimationDelegate {
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-        
     
-        guard let animationName = anim.value(forKey: "id") as? String else { return }
+        guard let animationId = anim.value(forKey: animationId) as? String else { return }
         
         if flag {
-            if animationName == "gradientAnimation" {
+            if animationId == gradientAnimationId {
                 gradientLayer.colors = gradientColors[currentGradient]
                 animateGradient()
-            } else if animationName == "scaleLabel" {
+            } else if animationId == scaleAnimationId {
                 currentCountDownStep += 1
             }
         }
@@ -155,7 +86,6 @@ extension ViewController {
     
     private func setupUI() {
         setupGradientLayer()
-        setupTimerView()
         setupCountDownView()
         setupStartButton()
         setupCountDownLabel()
@@ -177,19 +107,13 @@ extension ViewController {
             self.startCountDownButton.transform = .identity
             
             UIView.transition(from: self.countDownView, to: self.startCountDownButton, duration: 1, options: [.transitionCrossDissolve, .showHideTransitionViews], completion: { _ in
-                
                 self.currentCountDownStep = -1
             })
         }
     }
     
-    private func setupTimerView() {
-        view.addSubview(countDownTimerView)
-        countDownTimerView.centerView(in: view)
-        countDownTimerView.setSize(width: 200, height: 200)
-    }
-    
     private func setupStartButton() {
+        startCountDownButton.addTarget(self, action: #selector(startButtonDidTap(_:)), for: .touchUpInside)
         view.addSubview(startCountDownButton)
         startCountDownButton.centerView(in: view)
         startCountDownButton.setSize(width: 150, height: 50)
@@ -199,7 +123,6 @@ extension ViewController {
         view.addSubview(countDownLabel)
         countDownLabel.centerView(in: view)
         countDownLabel.setSize(width: 250, height: 50)
-        
         countDownLabel.isHidden = true
     }
 }
@@ -211,13 +134,13 @@ extension ViewController {
     private func animateGradient() {
         currentGradient = currentGradient < gradientColors.count - 1 ? currentGradient + 1 : 0
         
-        gradientAnimation = CABasicAnimation(keyPath: "colors")
+        let gradientAnimation = CABasicAnimation(keyPath: #keyPath(CAGradientLayer.colors))
         gradientAnimation.duration = 3.0
         gradientAnimation.toValue = gradientColors[currentGradient]
         gradientAnimation.fillMode = .forwards
         gradientAnimation.isRemovedOnCompletion = false
         gradientAnimation.delegate = self
-        gradientAnimation.setValue("gradientAnimation", forKey: "id")
+        gradientAnimation.setValue(gradientAnimationId, forKey: animationId)
         gradientLayer.add(gradientAnimation, forKey: "gradientChangeAnimation")
     }
 }
@@ -252,15 +175,28 @@ extension ViewController {
     
     private func animateCountDownLabel() {
         countDownLabel.isHidden = false
-    
-        scaleAnimation.delegate = self
-        countDownLabel.layer.add(scaleAnimation, forKey: "ScaleCountDownAnimation")
         
-        let opacityAnimation = CABasicAnimation(keyPath: "opacity")
+        setupOpacityAnimation()
+        setupScaleAnimation()
+    }
+    
+    private func setupOpacityAnimation() {
+        let opacityAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.opacity))
         opacityAnimation.toValue = 0
         opacityAnimation.duration = 0.5
         opacityAnimation.beginTime = CACurrentMediaTime() + 0.5
         countDownLabel.layer.add(opacityAnimation, forKey: "OpacityCountDownAnimation")
+    }
+    
+    private func setupScaleAnimation() {
+        let scaleAnimation = CABasicAnimation(keyPath: "transform.scale")
+        scaleAnimation.toValue = 6
+        scaleAnimation.duration = 1
+        scaleAnimation.timingFunction = CAMediaTimingFunction(controlPoints: 0.11, 0.9, 0.92, 0.13)
+        scaleAnimation.isRemovedOnCompletion = true
+        scaleAnimation.delegate = self
+        scaleAnimation.setValue(scaleAnimationId, forKey: animationId)
+        countDownLabel.layer.add(scaleAnimation, forKey: "ScaleCountDownAnimation")
     }
     
     private func animateCountDownViewIn() {
