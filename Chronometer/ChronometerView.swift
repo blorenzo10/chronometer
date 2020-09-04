@@ -17,48 +17,6 @@ class ChronometerView: UIView {
     private lazy var backgroundLayer = CAShapeLayer.createLayer(width: 10, strokeColor: .progressColor, fillColor: .black, lineCap: .round)
     private lazy var progressLayer = CAShapeLayer.createLayer(width: 10, strokeColor: .progressColor, fillColor: .clear, lineCap: .round)
     
-//    private lazy var remainingTimeLabel: UILabel = {
-//        let label = UILabel()
-//        label.textColor = .white
-//        label.font = .countDownTimerFont
-//        label.textAlignment = .center
-//        label.text = "10"
-//        return label
-//    }()
-    
-//    private lazy var pulseLayer: CAShapeLayer = {
-//        let layer = CAShapeLayer()
-//        layer.lineWidth = 10
-//        layer.strokeColor = UIColor.clear.cgColor
-//        layer.fillColor = UIColor.progressColor.cgColor
-//        layer.opacity = 0.8
-//        layer.lineCap = .round
-//        layer.frame = bounds
-//        return layer
-//    }()
-//
-//    private lazy var backgroundLayer: CAShapeLayer = {
-//        let layer = CAShapeLayer()
-//        layer.lineWidth = 10
-//        layer.strokeColor = UIColor.backgroundProgressColor.cgColor
-//        layer.fillColor = UIColor.black.cgColor
-//        layer.lineCap = .round
-//        layer.strokeEnd = 1
-//        layer.frame = bounds
-//        return layer
-//    }()
-//
-//    private lazy var progressLayer: CAShapeLayer = {
-//        let layer = CAShapeLayer()
-//        layer.lineWidth = 10
-//        layer.strokeColor = UIColor.progressColor.cgColor
-//        layer.fillColor = UIColor.clear.cgColor
-//        layer.lineCap = .round
-//        layer.strokeEnd = 0
-//        layer.frame = bounds
-//        return layer
-//    }()
-    
     // MARK: - Properties
     
     private var timer = Timer()
